@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MLT2 - Power Query Data Cleaning</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="sakura-falling"></canvas>
+  <div class="sakura-animation"></div>
+  <main class="container">
+    <h1>Midterm Lab Task 2 - Data Cleaning and Transformation using Power Query</h1>
+    <p>This page contains my lab task on cleaning and transforming a messy dataset using Power Query in Excel.</p>
+
+    <section>
+      <h2>Data Cleaning Process</h2>
+      <ul>
+        <li>Removed unnecessary characters from salary data</li>
+        <li>Classified job roles into five categories</li>
+        <li>Extracted state information from location data</li>
+        <li>Removed missing values and duplicates</li>
+        <li>Cleaned company names</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Data Transformation</h2>
+      <ul>
+        <li>Grouped salary data by role and company size</li>
+        <li>Merged state abbreviations with full names</li>
+        <li>Standardized salary figures</li>
+      </ul>
+    </section>
+
+    <section class="screenshots">
+      <h2>Before Data Cleaning</h2>
+      <img src="images/lab2before.png" alt="Before cleaning screenshot" />
+
+      <h2>After Data Cleaning</h2>
+      <img src="images/lab2after.png" alt="After cleaning screenshot" />
+
+      <h2>Query Dependencies</h2>
+      <img src="images/querydependencies.png" alt="Query Dependencies screenshot" />
+    </section>
+  </main>
+
+  <!-- Sakura Falling Animation Script -->
+  <script src="https://cdn.jsdelivr.net/gh/lgarron/sakura/sakura.js"></script>
+  <script>
+    const sakura = new Sakura('body', {
+      colors: [
+        {
+          gradientColorStart: 'rgba(255, 183, 197, 0.9)',
+          gradientColorEnd: 'rgba(255, 197, 208, 0.9)',
+          gradientColorDegree: 120
+        }
+      ],
+      maxSize: 14,
+      minSize: 9,
+      fallSpeed: 1.2
+    });
+  </script>
+
+  <!-- Sakura Trail Animation -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const trail = document.createElement("div");
+      trail.className = "sakura-trail";
+      document.body.appendChild(trail);
+
+      document.addEventListener("mousemove", function(e) {
+        const petal = document.createElement("div");
+        petal.className = "sakura-petal";
+        petal.style.left = `${e.pageX}px`;
+        petal.style.top = `${e.pageY}px`;
+        document.body.appendChild(petal);
+
+        setTimeout(() => petal.remove(), 1000);
+      });
+    });
+  </script>
+
+  <!-- Background Music -->
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4c73b93344.mp3?filename=serene-view-14757.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</body>
+</html>
 
