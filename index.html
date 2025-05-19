@@ -2,54 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Midterm Lab Task 2 - Power Query</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Midterm Lab Task 2 - Power Query Cleaning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <canvas id="sakura-canvas"></canvas>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Sawarabi Mincho', serif;
+      background: linear-gradient(135deg, #ffe4e6, #fff0f6);
+      color: #6b495f;
+      overflow-x: hidden;
+    }
 
-  <audio autoplay loop>
-    <source src="assets/sakura-music.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
 
-  <header class="task-header">
-    <h1>Data Cleaning & Transformation using Power Query</h1>
-  </header>
+    .container {
+      max-width: 960px;
+      margin: 3rem auto;
+      background-color: rgba(255, 240, 246, 0.95);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(255, 183, 197, 0.3);
+      padding: 2.5rem 3rem;
+      position: relative;
+      z-index: 2;
+    }
 
-  <section class="task-section">
-    <h2>Data Cleaning Process</h2>
-    <ul class="task-steps">
-      <li>Removed unnecessary characters from salary data to extract minimum and maximum values.</li>
-      <li>Classified job roles into five categories (Data Scientist, Data Analyst, Data Engineer, Machine Learning Engineer, Other).</li>
-      <li>Separated location data to extract state information.</li>
-      <li>Removed missing values, duplicates, and irrelevant data for accuracy.</li>
-      <li>Cleaned company names by removing extra characters and ratings.</li>
-    </ul>
-  </section>
+    h1, h2 {
+      text-align: center;
+      color: #d6336c;
+      text-shadow: 1px 1px 2px #f9c6d3;
+    }
 
-  <section class="task-section">
-    <h2>Data Transformation</h2>
-    <ul class="task-steps">
-      <li>Grouped salary data by job role and company size to calculate salary averages.</li>
-      <li>Merged state abbreviations with full names for better readability.</li>
-      <li>Standardized salary figures by converting them into thousands.</li>
-    </ul>
-  </section>
+    ul {
+      padding-left: 1.5rem;
+      line-height: 1.6;
+    }
 
-  <section class="screenshots">
-    <h2>Before Data Cleaning</h2>
-    <img src="images/lab2before.png" alt="Before Data Cleaning">
+    .screenshots img {
+      display: block;
+      margin: 1rem auto 2rem auto;
+      width: 90%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(255, 183, 197, 0.4);
+    }
 
-    <h2>After Data Cleaning</h2>
-    <img src="images/lab2after.png" alt="After Data Cleaning">
+    .petal-trail {
+      position: fixed;
+      width: 15px;
+      height: 15px;
+      background: radial-gradient(circle at 40% 40%, rgba(255,182,193,0.9), rgba(255,192,203,0.3));
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      pointer-events: none;
+      z-index: 9999;
+      animation: trail-fall 1.5s linear forwards;
+    }
 
-    <h2>Query Dependencies</h2>
-    <img src="images/querydependencies.png" alt="Query Dependencies">
-  </section>
-
-  <script src="sakura-trail.js"></script>
-  <script src="falling-petals.js"></script>
-</body>
-</html>
+    @keyframes trail-fall {
