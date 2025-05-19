@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Midterm Lab Task 2 - Power Query</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +16,7 @@
       background: linear-gradient(135deg, #ffe4e6, #fff0f6);
       color: #6b495f;
       overflow-x: hidden;
+      position: relative;
     }
 
     canvas {
@@ -58,7 +59,7 @@
     }
 
     .petal-trail {
-      position: fixed;
+      position: absolute;
       width: 15px;
       height: 15px;
       background: radial-gradient(circle at 40% 40%, rgba(255,182,193,0.9), rgba(255,192,203,0.3));
@@ -90,8 +91,15 @@
     </header>
 
     <section class="task-section">
+      <h2>Overview</h2>
+      <p>
+        In this lab, I worked on cleaning and organizing a messy dataset using Excel's Power Query. The dataset, <strong>Uncleaned_DS_Jobs.csv</strong>, was taken from a job posting site on Kaggle. The goal was to extract useful insights by performing data cleaning and transformation tasks.
+      </p>
+    </section>
+
+    <section class="task-section">
       <h2>Data Cleaning Process</h2>
-      <ul class="task-steps">
+      <ul>
         <li>Removed unnecessary characters from salary data to extract minimum and maximum values.</li>
         <li>Classified job roles into five categories (Data Scientist, Data Analyst, Data Engineer, Machine Learning Engineer, Other).</li>
         <li>Separated location data to extract state information.</li>
@@ -102,7 +110,7 @@
 
     <section class="task-section">
       <h2>Data Transformation</h2>
-      <ul class="task-steps">
+      <ul>
         <li>Grouped salary data by job role and company size to calculate salary averages.</li>
         <li>Merged state abbreviations with full names for better readability.</li>
         <li>Standardized salary figures by converting them into thousands.</li>
@@ -122,6 +130,7 @@
   </div>
 
   <script>
+    // Sakura falling petals
     const canvas = document.getElementById('falling-petals-canvas');
     const ctx = canvas.getContext('2d');
     let petals = [];
@@ -178,11 +187,12 @@
     initPetals();
     animatePetals();
 
+    // Mouse trail petals (scroll-independent)
     document.addEventListener('mousemove', function(e) {
       const trail = document.createElement('div');
       trail.className = 'petal-trail';
       trail.style.left = e.pageX + 'px';
-      trail.style.top = e.pageY + 'px';
+      trail.style.top = e.pageY + window.scrollY + 'px';
       document.body.appendChild(trail);
       setTimeout(() => trail.remove(), 1500);
     });
