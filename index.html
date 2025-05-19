@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Midterm Lab Task 2 - Querying with WHERE</title>
+  <title>Midterm Lab Task 2 - Power Query</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet" />
@@ -86,33 +86,48 @@
   <div class="container">
     <header>
       <h1>Midterm Lab Task 2</h1>
-      <h2>SQL Queries Using WHERE Clause</h2>
+      <h2>Data Cleaning and Transformation using Power Query</h2>
     </header>
 
     <section>
       <p>
-        In this lab activity, I practiced writing SQL SELECT statements using the WHERE clause to filter data based on different conditions. The goal was to retrieve specific records from a table by applying comparison operators, logical operators, and pattern matching.
+        In this lab, I worked on cleaning and organizing a messy dataset using Excel's Power Query. The dataset, <code>Uncleaned_DS_Jobs.csv</code>, was taken from a job posting site on Kaggle. The goal was to extract useful insights by performing data cleaning and transformation tasks.
       </p>
+
+      <h2>Data Cleaning Process</h2>
       <ul>
-        <li>Used <code>SELECT</code> with <code>WHERE</code> to filter records by specific column values</li>
-        <li>Applied logical operators like <code>AND</code>, <code>OR</code>, and <code>NOT</code></li>
-        <li>Used pattern matching with <code>LIKE</code> and wildcard characters</li>
-        <li>Performed queries on numerical, text, and date columns</li>
+        <li>Removed unnecessary characters from salary data to extract minimum and maximum values.</li>
+        <li>Classified job roles into five categories:
+          <ul>
+            <li>Data Scientist</li>
+            <li>Data Analyst</li>
+            <li>Data Engineer</li>
+            <li>Machine Learning Engineer</li>
+            <li>Other</li>
+          </ul>
+        </li>
+        <li>Extracted state from the location column.</li>
+        <li>Removed missing values, duplicates, and irrelevant data to improve accuracy.</li>
+        <li>Cleaned company names by removing ratings and extra symbols.</li>
+      </ul>
+
+      <h2>Data Transformation</h2>
+      <ul>
+        <li>Grouped salary data by job role and company size to compute salary averages.</li>
+        <li>Merged state abbreviations with full state names for readability.</li>
+        <li>Converted salary numbers into thousands to standardize values.</li>
       </ul>
     </section>
 
     <section class="screenshots">
-      <h2>Here's the screenshot of my output for Task 1</h2>
-      <img src="images/where1.PNG" alt="Task 1 Output" />
+      <h2>Here's the screenshot of my output before I started data cleaning</h2>
+      <img src="images/lab2before.png" alt="Before Data Cleaning Screenshot" />
 
-      <h2>Here's the screenshot of my output for Task 2</h2>
-      <img src="images/where2.PNG" alt="Task 2 Output" />
+      <h2>Here's the screenshot of my output after I started data cleaning</h2>
+      <img src="images/lab2after.png" alt="After Data Cleaning Screenshot" />
 
-      <h2>Here's the screenshot of my output for Task 3</h2>
-      <img src="images/where3.PNG" alt="Task 3 Output" />
-
-      <h2>Here's the screenshot of my output for Task 4</h2>
-      <img src="images/where4.PNG" alt="Task 4 Output" />
+      <h2>Here's the screenshot of my Query Dependencies</h2>
+      <img src="images/querydependencies.png" alt="Query Dependencies Screenshot" />
     </section>
   </div>
 
