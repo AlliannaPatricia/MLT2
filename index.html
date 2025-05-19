@@ -2,89 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MLT2 - Power Query Data Cleaning</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Midterm Lab Task 2 - Power Query</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <canvas id="sakura-falling"></canvas>
-  <div class="sakura-animation"></div>
-  <main class="container">
-    <h1>Midterm Lab Task 2 - Data Cleaning and Transformation using POWER QUERY</h1>
-    <p>
-      In this lab, I worked on cleaning and organizing a messy dataset using Excel's Power Query.
-      The dataset, <strong>Uncleaned_DS_Jobs.csv</strong>, was taken from a job posting site on Kaggle.
-      The goal was to extract useful insights by performing data cleaning and transformation tasks.
-    </p>
+  <canvas id="sakura-canvas"></canvas>
 
-    <section>
-      <h2>Data Cleaning Process</h2>
-      <ul>
-        <li>Removed unnecessary characters from salary data to extract minimum and maximum values.</li>
-        <li>Classified job roles into five categories (Data Scientist, Data Analyst, Data Engineer, Machine Learning Engineer, Other).</li>
-        <li>Separated location data to extract state information.</li>
-        <li>Removed missing values, duplicates, and irrelevant data for accuracy.</li>
-        <li>Cleaned company names by removing extra characters and ratings.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Data Transformation</h2>
-      <ul>
-        <li>Grouped salary data by job role and company size to calculate salary averages.</li>
-        <li>Merged state abbreviations with full names for better readability.</li>
-        <li>Standardized salary figures by converting them into thousands.</li>
-      </ul>
-    </section>
-
-    <section class="screenshots">
-      <h2>Here's the screenshot of my output before I started data cleaning (See screenshot)</h2>
-      <img src="images/lab2before.png" alt="Before Data Cleaning Screenshot" />
-
-      <h2>Here's the screenshot of my output after I started data cleaning (See screenshot)</h2>
-      <img src="images/lab2after.png" alt="After Data Cleaning Screenshot" />
-
-      <h2>Here's the screenshot of my Query Dependencies</h2>
-      <img src="images/querydependencies.png" alt="Query Dependencies Screenshot" />
-    </section>
-  </main>
-
-  <!-- Sakura Falling Animation -->
-  <script src="https://cdn.jsdelivr.net/gh/lgarron/sakura/sakura.js"></script>
-  <script>
-    const sakura = new Sakura('body', {
-      colors: [
-        {
-          gradientColorStart: 'rgba(255, 183, 197, 0.9)',
-          gradientColorEnd: 'rgba(255, 197, 208, 0.9)',
-          gradientColorDegree: 120
-        }
-      ],
-      maxSize: 14,
-      minSize: 9,
-      fallSpeed: 1.2
-    });
-  </script>
-
-  <!-- Sakura Trail -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      document.addEventListener("mousemove", function (e) {
-        const petal = document.createElement("div");
-        petal.className = "sakura-petal";
-        petal.style.left = `${e.pageX}px`;
-        petal.style.top = `${e.pageY}px`;
-        document.body.appendChild(petal);
-        setTimeout(() => petal.remove(), 1000);
-      });
-    });
-  </script>
-
-  <!-- Background Music -->
   <audio autoplay loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4c73b93344.mp3?filename=serene-view-14757.mp3" type="audio/mpeg">
+    <source src="assets/sakura-music.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
+
+  <header class="task-header">
+    <h1>Data Cleaning & Transformation using Power Query</h1>
+  </header>
+
+  <section class="task-section">
+    <h2>Data Cleaning Process</h2>
+    <ul class="task-steps">
+      <li>Removed unnecessary characters from salary data to extract minimum and maximum values.</li>
+      <li>Classified job roles into five categories (Data Scientist, Data Analyst, Data Engineer, Machine Learning Engineer, Other).</li>
+      <li>Separated location data to extract state information.</li>
+      <li>Removed missing values, duplicates, and irrelevant data for accuracy.</li>
+      <li>Cleaned company names by removing extra characters and ratings.</li>
+    </ul>
+  </section>
+
+  <section class="task-section">
+    <h2>Data Transformation</h2>
+    <ul class="task-steps">
+      <li>Grouped salary data by job role and company size to calculate salary averages.</li>
+      <li>Merged state abbreviations with full names for better readability.</li>
+      <li>Standardized salary figures by converting them into thousands.</li>
+    </ul>
+  </section>
+
+  <section class="screenshots">
+    <h2>Before Data Cleaning</h2>
+    <img src="images/lab2before.png" alt="Before Data Cleaning">
+
+    <h2>After Data Cleaning</h2>
+    <img src="images/lab2after.png" alt="After Data Cleaning">
+
+    <h2>Query Dependencies</h2>
+    <img src="images/querydependencies.png" alt="Query Dependencies">
+  </section>
+
+  <script src="sakura-trail.js"></script>
+  <script src="falling-petals.js"></script>
 </body>
 </html>
-
